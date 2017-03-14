@@ -2,9 +2,9 @@
   "name": "onhere",
   "version": "1.0.0",
   "description": "Projeto da disciplina de Engenharia de Software",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
