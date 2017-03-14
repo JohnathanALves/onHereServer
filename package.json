@@ -1,0 +1,20 @@
+{
+  "name": "onhere",
+  "version": "1.0.0",
+  "description": "Projeto da disciplina de Engenharia de Software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.0",
+    "body-parser": "~1.16.0",
+    "express": "^4.15.2",
+    "jwt-simple": "^0.2.0",
+    "moment": "^2.9.0",
+    "mongoose": "^4.8.7"
+  }
+}
