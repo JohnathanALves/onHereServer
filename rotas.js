@@ -30,4 +30,8 @@ router.get('/evento/lista', TokenValidation, function(req, res, next){
   var listaEventos = require('./Controllers/listaEvent')(req, res, next);
 });
 
+router.get('/evento/mine', TokenValidation, function(req, res, next){
+  var mineEventos = require('./Controllers/mineEvent')(req, res, next);
+});
+
 module.exports = router;
