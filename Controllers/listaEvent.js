@@ -10,7 +10,7 @@ module.exports = function(req, res, next){
     res.json({
       status: true,
       message: 'encontrado com sucesso!',
-      chaves: docs
+      eventos: docs
     });
   });
 }
