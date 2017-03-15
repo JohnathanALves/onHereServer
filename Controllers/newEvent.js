@@ -1,7 +1,6 @@
 var Model = require('../Models/Event');
 
 module.exports = function(req, res, next){
-  console.log('entrei')
   var descricao   = req.body.desc
   , data_in       = new Date(req.body.dtin)
   , data_fim      = new Date(req.body.dtfim)
@@ -11,10 +10,6 @@ module.exports = function(req, res, next){
   , owner         = req.user.email
   var gerador = new Password;
   var chave = gerador.generate(6);
-  // para debugar
-  console.log(owner);
-  console.log(descricao);
-  console.log(chave);
 
   // criacao do objeto do Model
   var data = new Model({

@@ -26,4 +26,8 @@ router.get('/evento/entrar/:id?', TokenValidation, function(req, res, next){
   var entrarEvento = require('./Controllers/enterEvent')(req, res, next);
 });
 
+router.get('/evento/lista', TokenValidation, function(req, res, next){
+  var listaEventos = require('./Controllers/listaEvent')(req, res, next);
+});
+
 module.exports = router;
