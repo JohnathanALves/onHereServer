@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var EventoSchema = new Schema({
+    nome          : {
+      type:       String,
+      required:   true
+    },
     descricao     : {
       type:       String,
       required:   true
@@ -23,6 +27,16 @@ var EventoSchema = new Schema({
       required:   true,
       unique:     true
     },
+    localizacao   :{
+      latitude    :{
+        type      : String,
+        required  : true
+      },
+      longitude   :{
+        type      : String,
+        required  : true
+      }
+    }
     latitude      : {
       type:       Number,
       required:   true
