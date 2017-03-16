@@ -2,6 +2,7 @@ var Model = require('../Models/Event');
 
 module.exports = function(req, res, next){
   var descricao   = req.body.desc
+  , nome          = req.body.nome
   , data_in       = new Date(req.body.dtin)
   , data_fim      = new Date(req.body.dtfim)
   , tolerancia    = req.body.tolerancia
@@ -13,12 +14,12 @@ module.exports = function(req, res, next){
 
   // criacao do objeto do Model
   var data = new Model({
-    descricao: descricao,
-    data_in: data_in,
-    data_fim: data_fim,
-    tolerancia: tolerancia,
-    latitude: latitude,
-    longitude: longitude,
+    nome          : nome,
+    descricao     : descricao,
+    data_in       : data_in,
+    data_fim      : data_fim,
+    tolerancia    : tolerancia,
+    localizacao   : {latitude: latitude, longitude: longitude},
     owner: owner,
     chave: chave
   });
