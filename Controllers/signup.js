@@ -12,7 +12,10 @@ module.exports = function(req, res, next){
         next(err);
       } else{
         console.log('Usuario criado' + data.email);
-        res.json({ message: 'Novo Usuário'});
+        res.json({
+					status: true
+					message: 'Novo Usuário'
+				 });
       }
 
 	  });
