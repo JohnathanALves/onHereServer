@@ -2,10 +2,14 @@ var Model = require('../Models/User');
 var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function(req, res, next){
+	var email = req.body.email;
+	var pass 	= req.body.password;
+	var name 	=	req.body.fullname;
+
 	var data = new Model({
-    email: req.body.email,
-    password: createHash(req.body.password),
-    fullname: req.body.fullname
+    email: email,
+    password: createHash(pass),
+    fullname: name
 	  });
 	  data.save(function(err) {
 	    if (err){
@@ -13,7 +17,6 @@ module.exports = function(req, res, next){
       } else{
         console.log('Usuario criado' + data.email);
         res.json({
-					status: true
 					message: 'Novo Usuário'
 				 });
       }

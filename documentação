@@ -1,0 +1,80 @@
+API para acesso a dados do servidor OnHERE APP
+
+URL = https://pure-sea-25119.herokuapp.com
+
+Qualquer PATH que necessita de login, terá que ser enviado junto
+com a requisição um parametro 'x-access-token' com o token gerado
+na requisição de login. = *Token
+
+PATH: /api
+  PATH:
+    /usuario  - Este caminho conterá todas as operações diretamente relacionadas ao usuario.
+      /login - Para logar.
+        METHOD: POST
+        PARAM:
+          'email'     - email do usuario para logar.
+          'password'  - senha do usuario.
+        RESULT:
+          'token'   - token que deverá ser guardado para acesso a outros diretórios
+          'expires' - data de expiração do token, BetaTest
+          'user'    - dados do usuario
+      /novo     - Este caminho cadastra um novo usuario
+        METHOD: POST
+        PARAM:
+          'email'     - email do usuario para cadastro
+          'password'  - senha para o usuario
+          'fullname'  - nome do usuario
+        RESULT:
+          'status'    - true, para sucesso
+          'message'   - mensagem estática = 'Novo Usuário'
+    /evento - caminho relacionado a operações com eventos *Token
+      /novo - para criação de novo evento.
+        METHOD: POST
+        PARAM:
+          'desc'      - descrição do evento
+          'nome'      - nome do evento.
+          'dtin'      - data de inicio do evento
+          'dtfim'     - data de termino do evento
+          'tolerancia'- tolerancia para entrar no evento
+          'latitude'  - latitude do evento
+          'longitude' - longitude do evento
+        RESULT:
+          'status'    - true para sucesso
+          'evento'    - JSON com informações do evento criado
+        OBS:
+          campos dtin e dtfim precisa estar no formato UTC AAAA-MM-DDTHH:MM.SSZ
+          exemplo 1970-01-01T00:16:52.017Z
+      /entrar - entrar em evento
+        METHOD: GET
+          id: - chave
+        RESULT:
+          'status'    - true
+          'message'   - mensagem estática 'usuario adicionado a evento com sucesso'
+          'chave'     - chave para entrar no evento
+          'user'      - dados do usuario
+      /lista - lista eventos que o usuario logado participantes
+        METHOD: get
+        RESULT:
+          'nome' - nome do evento
+          'descricao' - descricao do evento
+          'dtin' - data inicio
+          'dtfim' - data fim
+          'tolerancia' - tolerancia
+          'localizacao': {
+            lat - latitude
+            long - longitude
+          }
+          'criador': nome do criador do evento
+      /mine - eventos criados pelo usuario logado
+        METHOD: GET
+        RESULT:
+        'nome' - nome do evento
+        'descricao' - descricao do evento
+        'dtin' - data inicio
+        'dtfim' - data fim
+        'tolerancia' - tolerancia
+        'localizacao': {
+          lat - latitude
+          long - longitude
+        }
+        'criador': nome do criador do evento
