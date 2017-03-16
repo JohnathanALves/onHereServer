@@ -27,7 +27,7 @@ var EventoSchema = new Schema({
       required:   true,
       unique:     true
     },
-    localizacao   :[
+    localizacao   :[{
       latitude    :{
         type      : String,
         required  : true
@@ -36,7 +36,7 @@ var EventoSchema = new Schema({
         type      : String,
         required  : true
       }
-    ],
+    }],
     owner         : {
       type:       String,
       required:   true
