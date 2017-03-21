@@ -1,0 +1,15 @@
+Status:
+  404 - url não encontradas.
+  405 - email não encontrado.
+  406 - senha inválida.
+  407 - email ou senha em branco.
+  408 - email já cadastrado.
+  409 - usuário cadastrado com sucesso.
+  410 - Acesso Expirado, faça login novamente.
+  411 - Erro ao procurar usuario do token.
+  412 - Erro: Seu token é inválido.
+  413 - Token não encontrado ou informado.
+  414 - Erro ao encontrar evento.
+  415 - Erro ao entrar no evento.
+  416 - Erro ao encontrar dono do evento.
+  666 - Sucesso na requisição.

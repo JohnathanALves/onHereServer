@@ -7,18 +7,25 @@ module.exports = function(req, res) {
   var email = req.body.email || '';
   var password = req.body.password || '';
   if (email == '' || password == '') {
-    return res.send(401);
+    return res.json({
+      status: '407'
+    });
   }
   //1
   Usuario.findOne({email: email}, function (err, user) {
   	if (err) {
-      return res.json(401, err)
+      console.log(err);
+      return res.json({
+        status: '405'
+      });
     }
     //2
     user.verificaSenha(password, function(isMatch) {
       if (!isMatch) {
         console.log("Attempt failed to login with " + user.email);
-        return res.send(401);
+        return res.json({
+          status: '406'
+        });
       }
     //3
   	var expires = moment().add(7,'days').valueOf();

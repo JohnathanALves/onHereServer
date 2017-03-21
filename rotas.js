@@ -13,6 +13,7 @@ router.post('/usuario/login', function(req, res, next){
 
 router.get('/usuario/hello', TokenValidation, function(req, res, next){
   res.json({
+    status: '666',
     message: 'Hello from user!'
   });
 });

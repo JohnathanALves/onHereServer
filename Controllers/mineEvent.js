@@ -3,7 +3,7 @@ var Evento = require('../Models/Event');
 module.exports = function(req, res, next){
   Evento.find({owner: usermail}, function(err, docs){
     if(err){
-      return res.json(401, err);
+      return res.json({status: '416'});
     }
     var array = []
     for (var i =0; i< docs.length; i++){

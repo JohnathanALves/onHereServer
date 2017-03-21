@@ -6,22 +6,31 @@ module.exports = function(req, res, next){
 	var pass 	= req.body.password;
 	var name 	=	req.body.fullname;
 
-	var data = new Model({
-    email: email,
-    password: createHash(pass),
-    fullname: name
-	  });
-	  data.save(function(err) {
-	    if (err){
-        next(err);
-      } else{
-        console.log('Usuario criado' + data.email);
-        res.json({
-					message: 'Novo Usuário'
-				 });
-      }
-
-	  });
+	Model.findOne({email: email}, function(err, docs){
+		if(err){
+			//criacao do objeto
+			var data = new Model({
+		    email: email,
+		    password: createHash(pass),
+		    fullname: name
+			  });
+				// salva o objeto
+			  data.save(function(err) {
+			    if (err){
+		        next(err);
+		      } else{
+		        console.log('Usuario criado' + data.email);
+		        res.json({
+							status: 409
+						 });
+		      }
+			  });
+		} else {
+			res.json({
+				status: '408'
+			});
+		}
+	});
 
 };
 var createHash = function(password){

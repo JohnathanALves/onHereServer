@@ -6,14 +6,14 @@ module.exports = function(req, res, next){
   var ownername;
   User.findOne({email: usermail}, function(err, user){
     if(err){
-      return res.json(401, err);
+      return res.json({status: '416'});
     } else{
       ownername = user.fullname;
     }
   });
   Evento.find({participantes: usermail}, function(err, docs){
     if (err){
-      return res.json(401, err);
+      return res.json(status: '414');
     }
     var array = []
     for (var i =0; i< docs.length; i++){

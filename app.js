@@ -35,6 +35,7 @@ app.use('/api', rotas);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   res.json({
+    status: '404',
     message: 'Not Found, hihihi',
   });
 });
