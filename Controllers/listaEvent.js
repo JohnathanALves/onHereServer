@@ -3,34 +3,31 @@ var User = require('../Models/User');
 
 module.exports = function(req, res, next){
   var usermail = req.user.email;
-  var ownername;
-  User.findOne({email: usermail}, function(err, user){
+
+  Evento.find({participantes: usermail}, function(err, docs){
     if(err){
       return res.json({status: '416'});
     } else{
-      ownername = user.fullname;
+      var array = []
+      for (var i =0; i< docs.length; i++){
+          array[i] = {
+            nome: docs[i].nome,
+            descricao: docs[i].descricao,
+            dtin: docs[i].data_in,
+            dtfim: docs[i].data_fim,
+            tolerancia: docs[i].tolerancia,
+        // TO do nao ta funcionando
+        //    latitude: docs[i].latitude,
+        //    longitude: docs[i].longitude,
+            participantes: docs[i]. participantes,
+            chave: docs[i].chave,
+            criador: docs[i].owner
+          };
+      }
+      res.json({
+        eventos: array
+      });
     }
   });
-  Evento.find({participantes: usermail}, function(err, docs){
-    if (err){
-      return res.json(status: '414');
-    }
-    var array = []
-    for (var i =0; i< docs.length; i++){
-        array[i] = {
-          nome: docs[i].nome,
-          descricao: docs[i].descricao,
-          dtin: docs[i].data_in,
-          dtfim: docs[i].data_fim,
-          tolerancia: docs[i].tolerancia,
-          localizacao: {lat: docs[i].latitude, long: docs[i].long },
-          criador: ownername
-        };
-    }
-    res.json({
-      status: true,
-      message: 'encontrado com sucesso!',
-      eventos: array
-    });
-  });
+
 }

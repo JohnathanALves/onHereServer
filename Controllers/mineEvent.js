@@ -14,9 +14,10 @@ module.exports = function(req, res, next){
           dtin: docs[i].data_in,
           dtfim: docs[i].data_fim,
           tolerancia: docs[i].tolerancia,
-      // TO do nao ta funcionando   
+      // TO do nao ta funcionando
       //    latitude: docs[i].latitude,
       //    longitude: docs[i].longitude,
+          participantes: docs[i]. participantes,
           chave: docs[i].chave,
           criador: req.user.fullname
         };
