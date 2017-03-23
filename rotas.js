@@ -32,7 +32,7 @@ router.get('/evento/mine', TokenValidation, function(req, res, next){
   var mineEventos = require('./Controllers/mineEvent')(req, res, next);
 });
 
-router.get('/token/valida', TokendValidation, function(req, res, next){
+router.get('/token/valida', TokenValidation, function(req, res, next){
   return res.json({status: '666'});
 });
 
