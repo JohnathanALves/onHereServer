@@ -12,10 +12,7 @@ router.post('/usuario/login', function(req, res, next){
 });
 
 router.get('/usuario/hello', TokenValidation, function(req, res, next){
-  res.json({
-    status: '666',
-    message: 'Hello from user!'
-  });
+  res.json({status: '666'});
 });
 
 router.post('/evento/novo', TokenValidation, function(req, res, next){
@@ -33,6 +30,10 @@ router.get('/evento/lista', TokenValidation, function(req, res, next){
 
 router.get('/evento/mine', TokenValidation, function(req, res, next){
   var mineEventos = require('./Controllers/mineEvent')(req, res, next);
+});
+
+router.get('/token/valida', TokendValidation, function(req, res, next){
+  return res.json({status: '666'});
 });
 
 module.exports = router;
