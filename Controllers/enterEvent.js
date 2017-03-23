@@ -1,23 +1,20 @@
 var Evento = require('../Models/Event');
 
 module.exports = function(req, res, next){
-
-  var chave = req.query.id;
-  Evento.findOne({chave:chave}, function(err, evento){
-    if(err){
-      return res.json({status: '414'});
-    }
-    evento.participantes.push(req.user.email);
-    evento.save(function(err){
-      if (err)
-        return res.json({status: '415'});
-    });
-    console.log('adicionado participante: '+ chave + ' : '+ req.user.email);
-    res.json({
-      status: true,
-      message: 'usuario adicionado a evento com sucesso!',
-      chave: chave,
-      user: req.user.email
-    })
+  var id = req.query.id;
+  var usermail = req.user.email;
+  var _idEvento;
+  console.log('entrei')
+  Evento.findOne({chave: id}, function(err, evento){
+    _idEvento = evento._id;
   });
+  Evento.findByIdAndUpdate(
+    _idEvento,
+    {$push: {"participantes": usermail}},
+    {safe: true, upsert: true},
+    function(err, model){
+      if(err) return res.json(err);
+      return res.json('417');
+    }
+  );
 };
