@@ -21,7 +21,7 @@ module.exports = function(req, res, next){
 		      } else{
 		        console.log('Usuario criado' + data.email);
 		        res.json({
-							status: 409
+							status: '409'
 						 });
 		      }
 			  });
