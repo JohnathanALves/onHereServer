@@ -8,6 +8,13 @@ module.exports = function(req, res, next){
 
 	Model.findOne({email: email}, function(err, docs){
 		if(!err){
+			console.log('Error in signup: '+err);
+			return res.json(status: '418');
+		}
+		if(docs) {
+			console.log('Email ja cadastrado: '+email);
+			return res.json('408');
+		} else {
 			//criacao do objeto
 			var data = new Model({
 		    email: email,
@@ -17,7 +24,8 @@ module.exports = function(req, res, next){
 				// salva o objeto
 			  data.save(function(err) {
 			    if (err){
-		        next(err);
+						console.log('Error in signup: '+err);
+						return res.json(status: '418');
 		      } else{
 		        console.log('Usuario criado' + data.email);
 		        res.json({
@@ -25,10 +33,6 @@ module.exports = function(req, res, next){
 						 });
 		      }
 			  });
-		} else {
-			res.json({
-				status: '408'
-			});
 		}
 	});
 
