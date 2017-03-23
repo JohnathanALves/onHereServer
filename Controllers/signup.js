@@ -12,7 +12,7 @@ module.exports = function(req, res, next){
 			return res.json({status: '418'});
 		}
 		if(user) {
-			console.log('Email ja cadastrado: '+email);
+			console.log('ERRO: CADASTRO NOVO USUARIO - Email ja Existe: '+email);
 			return res.json({status: '408'});
 		}
 		//criacao do objeto
