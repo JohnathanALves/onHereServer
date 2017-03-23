@@ -13,4 +13,5 @@ Status:
   415 - Erro ao entrar no evento.
   416 - Erro ao encontrar dono do evento.
   417 - Entrou no evento com sucesso.
+  418 - Erro ao cadastrar.
   666 - Sucesso na requisição.
