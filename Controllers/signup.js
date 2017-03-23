@@ -7,7 +7,7 @@ module.exports = function(req, res, next){
 	var name 	=	req.body.fullname;
 
 	Model.findOne({email: email}, function(err, docs){
-		if(err){
+		if(!err){
 			//criacao do objeto
 			var data = new Model({
 		    email: email,
