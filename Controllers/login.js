@@ -4,8 +4,10 @@ var moment = require('moment');
 var segredo = 'seusegredodetoken';
 
 module.exports = function(req, res) {
-  var email = req.body.email || '';
-  var password = req.body.password || '';
+  var email = req.body.email;
+  var password = req.body.password;
+  console.log(email);
+  console.log(password);
   if (email == '' || password == '') {
     return res.json({
       status: '407'
@@ -15,9 +17,10 @@ module.exports = function(req, res) {
   Usuario.findOne({email: email}, function (err, user) {
   	if (err) {
       console.log(err);
-      return res.json({
-        status: '405'
-      });
+      return res.json({status: '406'});
+    }
+    if(!user){
+      return res.json({status: '406'});
     }
     //2
     user.verificaSenha(password, function(isMatch) {

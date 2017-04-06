@@ -29,11 +29,11 @@ var EventoSchema = new Schema({
     },
     localizacao   :[{
       latitude    :{
-        type      : String,
+        type      : Number,
         required  : true
       },
       longitude   :{
-        type      : String,
+        type      : Number,
         required  : true
       }
     }],

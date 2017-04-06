@@ -6,9 +6,21 @@ module.exports = function(req, res, next){
   , data_in       = new Date(req.body.dtin)
   , data_fim      = new Date(req.body.dtfim)
   , tolerancia    = req.body.tolerancia
-  , latitude      = req.body.latitude
-  , longitude     = req.body.longitude
+  , lat           = req.body.latitude
+  , long          = req.body.longitude
   , owner         = req.user.email
+  if (typeof data_in == 'undefined' || typeof data_fim == 'undefined'){
+    res.json({status: '420'});
+  }
+  console.log('entrei');
+  console.log(descricao);
+  console.log(nome);
+  console.log(data_in);
+  console.log(data_fim);
+  console.log(tolerancia);
+  console.log(lat);
+  console.log(long);
+  console.log(owner);
   var gerador = new Password;
   var chave = gerador.generate(6);
 
@@ -19,7 +31,7 @@ module.exports = function(req, res, next){
     data_in       : data_in,
     data_fim      : data_fim,
     tolerancia    : tolerancia,
-    localizacao   : {latitude: latitude, longitude: longitude},
+    localizacao   : {latitude: lat, longitude: long},
     owner: owner,
     chave: chave
   });

@@ -1,7 +1,7 @@
 Status:
   404 - url não encontradas.
   405 - email não encontrado.
-  406 - senha inválida.
+  406 - senha ou email inválida.
   407 - email ou senha em branco.
   408 - email já cadastrado.
   409 - usuário cadastrado com sucesso.
@@ -14,4 +14,6 @@ Status:
   416 - Erro ao encontrar dono do evento.
   417 - Entrou no evento com sucesso.
   418 - Erro ao cadastrar.
+  419 - Erro no Checking: Distancia acima do permitido.
+  420 - Erro input Data.
   666 - Sucesso na requisição.

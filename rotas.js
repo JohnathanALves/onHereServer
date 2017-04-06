@@ -16,7 +16,6 @@ router.get('/usuario/hello', TokenValidation, function(req, res, next){
 });
 
 router.post('/evento/novo', TokenValidation, function(req, res, next){
-  //res.json({message:'hi'});
   var newEvent = require('./Controllers/newEvent')(req, res, next);
 });
 
