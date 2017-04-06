@@ -5,6 +5,9 @@ module.exports = function(req, res, next){
   var id = req.query.id;
   var usermail = req.user.email;
   //var posicao = {latitude: req.user.latitude, longitude: req.user.longitude};
+  console('usuario entrando em evento: ');
+  console.log(id);
+  console.log(usermail);
   var chave;
   if(typeof id === 'undefined' || id == null){
     return res.json({status: '414'});
