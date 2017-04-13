@@ -37,11 +37,11 @@ module.exports = function(req, res, next){
   });
   data.save(function(err){
     if(err){
-      next(err);
+      res.json({'status': 421});
     } else{
       console.log('Evento criado! ' + chave);
       res.json({
-        status: 'true',
+        status: '422',
         evento: data.toJSON()
       })
     }

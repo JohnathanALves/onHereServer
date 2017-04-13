@@ -2,12 +2,10 @@ var Evento = require('../Models/Event');
 var geolib = require('geolib');
 
 module.exports = function(req, res, next){
-  var id = req.query.id;
-  var usermail = req.user.email;
-  //var posicao = {latitude: req.user.latitude, longitude: req.user.longitude};
-  console.log('usuario entrando em evento: ');
-  console.log(id);
-  console.log(usermail);
+  var id            = req.query.chave;
+  var usermail      = req.user.email;
+  var lat           = req.body.latitude
+  var long          = req.body.longitude
   var chave;
   if(typeof id === 'undefined' || id == null){
     return res.json({status: '414'});
@@ -25,7 +23,7 @@ module.exports = function(req, res, next){
     part.push(usermail);
     evento.participantes = part;
     evento.save(function(err, event){
-      if(err) return res.json({status: '414'});
+      if(err) return res.json({status: '415'});
       return res.json({status: '417'});
     });
   });
