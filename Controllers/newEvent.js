@@ -31,7 +31,8 @@ module.exports = function(req, res, next){
     data_in       : data_in,
     data_fim      : data_fim,
     tolerancia    : tolerancia,
-    localizacao   : {latitude: lat, longitude: long},
+    latitude      : lat,
+    longitude     : long,
     owner: owner,
     chave: chave
   });

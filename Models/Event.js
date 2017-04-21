@@ -27,16 +27,14 @@ var EventoSchema = new Schema({
       required:   true,
       unique:     true
     },
-    localizacao   :[{
-      latitude    :{
-        type      : Number,
-        required  : true
-      },
-      longitude   :{
-        type      : Number,
-        required  : true
-      }
-    }],
+    latitude    :{
+      type      : Number,
+      required  : true
+    },
+    longitude   :{
+      type      : Number,
+      required  : true
+    },
     owner         : {
       type:       String,
       required:   true

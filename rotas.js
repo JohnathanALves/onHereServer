@@ -19,7 +19,7 @@ router.post('/evento/novo', TokenValidation, function(req, res, next){
   var newEvent = require('./Controllers/newEvent')(req, res, next);
 });
 
-router.get('/evento/entrar/:id?:latitude?:longitude?', TokenValidation, function(req, res, next){
+router.get('/evento/entrar/:chave?:latitude?:longitude?', TokenValidation, function(req, res, next){
   var entrarEvento = require('./Controllers/enterEvent')(req, res, next);
 });
 
