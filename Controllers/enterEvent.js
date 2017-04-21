@@ -22,6 +22,7 @@ module.exports = function(req, res, next){
       p1: {lat: evento.latitude, lon: evento.longitude},
       p2: {lat: lat, lon: long}
     });
+    moment.tz.setDefault("America/Recife");
     var startData = moment(evento.data_in);
     console.log(evento.data_in);
     console.log('start: ' + startData.format());
