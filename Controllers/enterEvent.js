@@ -29,7 +29,7 @@ module.exports = function(req, res, next){
     console.log('Current time: ' + currentTime.format());
     var Timediference = currentTime.diff(startData, 'minutes');
     console.log(Timediference);
-    if(Timediference > 15){
+    if(Timediference > evento.tolerancia){
       res.json({status: '421'});
     }
     if (distance.distance >= 0.015 ){
