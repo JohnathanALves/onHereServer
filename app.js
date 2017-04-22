@@ -3,7 +3,11 @@ var express     = require('express')
   , bodyParser  = require('body-parser')
   , mongoose    = require('mongoose')
   , jwt         = require('jwt-simple')
+  , moment      = require('moment-timezone')
 
+
+// config hora e timezone
+moment().tz("America/Recife").format();
 // conexao com MlAB
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://admin:admin@ds113660.mlab.com:13660/onheredb');

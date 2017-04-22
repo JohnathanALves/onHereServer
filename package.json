@@ -16,6 +16,7 @@
     "geo-lib": "^0.3.1",
     "jwt-simple": "^0.2.0",
     "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
     "mongoose": "^4.8.7"
   }
 }

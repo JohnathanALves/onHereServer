@@ -1,10 +1,12 @@
 var Model = require('../Models/Event');
+var moment = require('moment');
+
 
 module.exports = function(req, res, next){
   var descricao   = req.body.desc
   , nome          = req.body.nome
-  , data_in       = new Date(req.body.dtin)
-  , data_fim      = new Date(req.body.dtfim)
+  , data_in       = moment(req.body.dtin)
+  , data_fim      = moment(req.body.dtfim)
   , tolerancia    = req.body.tolerancia
   , lat           = req.body.latitude
   , long          = req.body.longitude
@@ -24,12 +26,17 @@ module.exports = function(req, res, next){
   var gerador = new Password;
   var chave = gerador.generate(6);
 
+  var tempdata_in = data_in.toString();
+  var tempdata_fim = data_fim.toString();
+
+  console.log('tempdata_in: '+tempdata_in);
+  console.log('tempdata_fim: '+tempdata_fim);
   // criacao do objeto do Model
   var data = new Model({
     nome          : nome,
     descricao     : descricao,
-    data_in       : data_in,
-    data_fim      : data_fim,
+    data_in       : tempdata_in,
+    data_fim      : tempdata_fim,
     tolerancia    : tolerancia,
     latitude      : lat,
     longitude     : long,
