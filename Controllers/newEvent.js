@@ -32,10 +32,14 @@ module.exports = function(req, res, next){
   console.log('tempdata_in: '+tempdata_in);
   console.log('tempdata_fim: '+tempdata_fim);
 
-  var statusTolerancia = true;
-  if(!tolerancia){
+  var statusTolerancia;
+  if(tolerancia == 0){
     statusTolerancia = false;
+  } else {
+    statusTolerancia = true;
   }
+  
+  console.log('statusTolerancia: '+ statusTolerancia);
   // criacao do objeto do Model
   var data = new Model({
     nome          : nome,
