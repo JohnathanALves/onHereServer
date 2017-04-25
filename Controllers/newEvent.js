@@ -31,6 +31,11 @@ module.exports = function(req, res, next){
 
   console.log('tempdata_in: '+tempdata_in);
   console.log('tempdata_fim: '+tempdata_fim);
+
+  var statusTolerancia = true;
+  if(!tolerancia){
+    statusTolerancia = false;
+  }
   // criacao do objeto do Model
   var data = new Model({
     nome          : nome,
@@ -40,6 +45,7 @@ module.exports = function(req, res, next){
     tolerancia    : tolerancia,
     latitude      : lat,
     longitude     : long,
+    isToleranciaAtivo : statusTolerancia,
     owner: owner,
     chave: chave
   });
