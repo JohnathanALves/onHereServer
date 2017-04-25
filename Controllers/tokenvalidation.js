@@ -10,14 +10,14 @@ module.exports = function(req, res, next) {
    		console.log('decodando ' + decoded);
      //2
       if (decoded.exp <= Date.now()) {
-  		  res.json({status: '410'});
+  		  return res.json({status: '410'});
   		}
   		//3
   		model.findOne({ _id: decoded.iss }, function(err, user) {
     		if(err)
-    			res.json({status: '411'});
+    			return res.json({status: '411'});
 				if (!user) {
-					res.json({status: '411'});
+					return res.json({status: '411'});
 				}
     		req.user = user;
     		console.log('achei usuario ' + req.user)
@@ -28,6 +28,6 @@ module.exports = function(req, res, next) {
       return res.json({status: '412'});
     }
   } else {
-	   res.json({status: '413'})
+	   return res.json({status: '413'})
   }
 };
