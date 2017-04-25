@@ -21,4 +21,8 @@ Status:
   422 - erro ao deletar evento
   423 - evento deletado com sucesso.
   424 - somente o criador do evento pode remover o evento.
+
+  425 - erro ao desligar tolerancia
+  426 - tolerancia desligada com sucesso.
+  427 - somente o criador pode desligar a tolerancia.
   666 - Sucesso na requisição.

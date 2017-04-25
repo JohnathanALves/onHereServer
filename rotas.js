@@ -35,6 +35,10 @@ router.get('/evento/delete/:chave?', TokenValidation, function(req, res, next){
   var deletaEventos = require('./Controllers/deleteEvent')(req, res, next);
 });
 
+router.get('/evento/toleranciaOff/:chave?', TokenValidation, function(req, res, next){
+  var toleranciaOff = require('./Controllers/toleranciaOff')(req, res, next);
+});
+
 router.get('/token/valida', TokenValidation, function(req, res, next){
   return res.json({status: '666'});
 });

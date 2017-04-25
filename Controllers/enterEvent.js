@@ -29,11 +29,29 @@ module.exports = function(req, res, next){
     console.log('Current time: ' + currentTime.format());
     var Timediference = currentTime.diff(startData, 'minutes');
     console.log(Timediference);
-    if(Timediference > evento.tolerancia){
-      res.json({status: '421'});
-    } else{
+    if (evento.isToleranciaAtivo){
+      if(Timediference > evento.tolerancia){
+        return res.json({status: '421'});
+      } else{
+        if (distance.distance >= 0.015 ){
+          return res.json({status: '419'});
+        } else {
+          var part = [];
+          part = evento.participantes;
+          if (part.indexOf(usermail) > -1){
+            part.push(usermail);
+            evento.participantes = part;
+            evento.save(function(err, event){
+              if(err) return res.json({status: '415'});
+              return res.json({status: '417'});
+            });
+          }
+          return res.json({status: '417'});
+        }
+      }
+    } else {
       if (distance.distance >= 0.015 ){
-        res.json({status: '419'});
+        return res.json({status: '419'});
       } else {
         var part = [];
         part = evento.participantes;
@@ -48,5 +66,6 @@ module.exports = function(req, res, next){
         return res.json({status: '417'});
       }
     }
+
   });
 };
