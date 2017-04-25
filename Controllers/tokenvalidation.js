@@ -16,6 +16,9 @@ module.exports = function(req, res, next) {
   		model.findOne({ _id: decoded.iss }, function(err, user) {
     		if(err)
     			res.json({status: '411'});
+				if (!user) {
+					res.json({status: '411'});
+				}
     		req.user = user;
     		console.log('achei usuario ' + req.user)
   			return next();
