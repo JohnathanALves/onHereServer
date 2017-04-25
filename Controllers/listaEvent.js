@@ -10,18 +10,20 @@ module.exports = function(req, res, next){
     } else{
       var array = []
       for (var i =0; i< docs.length; i++){
-          array[i] = {
-            nome: docs[i].nome,
-            descricao: docs[i].descricao,
-            dtin: docs[i].data_in,
-            dtfim: docs[i].data_fim,
-            tolerancia: docs[i].tolerancia,
-            latitude: docs[i].latitude,
-            longitude: docs[i].longitude,
-            participantes: docs[i]. participantes,
-            chave: docs[i].chave,
-            criador: docs[i].owner
-          };
+          if (docs[i].isAtivo) {
+            array[i] = {
+              nome: docs[i].nome,
+              descricao: docs[i].descricao,
+              dtin: docs[i].data_in,
+              dtfim: docs[i].data_fim,
+              tolerancia: docs[i].tolerancia,
+              latitude: docs[i].latitude,
+              longitude: docs[i].longitude,
+              participantes: docs[i]. participantes,
+              chave: docs[i].chave,
+              criador: docs[i].owner
+            };
+          }
       }
       res.json({
         eventos: array

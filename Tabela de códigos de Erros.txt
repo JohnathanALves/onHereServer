@@ -17,4 +17,8 @@ Status:
   419 - Erro no Checking: Distancia acima do permitido.
   420 - Erro input Data.
   421 - ta atrasado.
+
+  422 - erro ao deletar evento
+  423 - evento deletado com sucesso.
+  424 - somente o criador do evento pode remover o evento.
   666 - Sucesso na requisição.

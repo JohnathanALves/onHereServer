@@ -8,6 +8,7 @@ module.exports = function(req, res, next){
     }
     var array = []
     for (var i =0; i< docs.length; i++){
+      if (docs[i].isAtivo) {
         array[i] = {
           nome: docs[i].nome,
           descricao: docs[i].descricao,
@@ -20,6 +21,7 @@ module.exports = function(req, res, next){
           longitude: docs[i].longitude,
           criador: req.user.fullname
         };
+      }
     }
     res.json({
       eventos: array

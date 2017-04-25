@@ -26,8 +26,8 @@ module.exports = function(req, res, next){
   var gerador = new Password;
   var chave = gerador.generate(6);
 
-  var tempdata_in = data_in.toString();
-  var tempdata_fim = data_fim.toString();
+  var tempdata_in = data_in.toISOString();
+  var tempdata_fim = data_fim.toISOString();
 
   console.log('tempdata_in: '+tempdata_in);
   console.log('tempdata_fim: '+tempdata_fim);

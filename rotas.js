@@ -31,8 +31,13 @@ router.get('/evento/mine', TokenValidation, function(req, res, next){
   var mineEventos = require('./Controllers/mineEvent')(req, res, next);
 });
 
+router.get('/evento/delete/:chave?', TokenValidation, function(req, res, next){
+  var deletaEventos = require('./Controllers/deleteEvent')(req, res, next);
+});
+
 router.get('/token/valida', TokenValidation, function(req, res, next){
   return res.json({status: '666'});
 });
+
 
 module.exports = router;

@@ -43,7 +43,9 @@ var EventoSchema = new Schema({
       [{
         type:     String,
         unique:   true
-      }]
+      }],
+    isAtivo       : {type: Boolean, default: true},
+    isToleranciaAtivo : {type: Boolean, default: true}
 });
 
 module.exports = mongoose.model('Event', EventoSchema);
