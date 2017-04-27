@@ -11,11 +11,11 @@ var EventoSchema = new Schema({
       required:   true
     },
     data_in       : {
-      type:       String,
+      type:       Date,
       required:   true
     },
     data_fim      : {
-      type:       String,
+      type:       Date,
       required:   true
     },
     tolerancia    : {

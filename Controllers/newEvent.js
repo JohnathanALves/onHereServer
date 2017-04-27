@@ -26,8 +26,8 @@ module.exports = function(req, res, next){
   var gerador = new Password;
   var chave = gerador.generate(6);
 
-  var tempdata_in = data_in.toISOString();
-  var tempdata_fim = data_fim.toISOString();
+  var tempdata_in = data_in;
+  var tempdata_fim = data_fim;
 
   console.log('tempdata_in: '+tempdata_in);
   console.log('tempdata_fim: '+tempdata_fim);
@@ -38,7 +38,7 @@ module.exports = function(req, res, next){
   } else {
     statusTolerancia = true;
   }
-  
+
   console.log('statusTolerancia: '+ statusTolerancia);
   // criacao do objeto do Model
   var data = new Model({

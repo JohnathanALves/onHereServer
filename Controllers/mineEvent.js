@@ -1,4 +1,5 @@
 var Evento = require('../Models/Event');
+var Moment = require('moment');
 
 module.exports = function(req, res, next){
   var usermail = req.user.email;
@@ -12,8 +13,8 @@ module.exports = function(req, res, next){
         var array = {
           nome: docs[i].nome,
           descricao: docs[i].descricao,
-          dtin: docs[i].data_in,
-          dtfim: docs[i].data_fim,
+          dtin: Moment(docs[i].data_in).utcOffset('-0300'),
+          dtfim: Moment(docs[i].data_fim).utcOffset('-0300'),
           tolerancia: docs[i].tolerancia,
           participantes: docs[i]. participantes,
           chave: docs[i].chave,
