@@ -6,10 +6,10 @@ module.exports = function(req, res, next){
     if(err){
       return res.json({status: '416'});
     }
-    var array = []
+    var final = [];
     for (var i =0; i< docs.length; i++){
       if (docs[i].isAtivo) {
-        array[i] = {
+        var array = {
           nome: docs[i].nome,
           descricao: docs[i].descricao,
           dtin: docs[i].data_in,
@@ -21,10 +21,11 @@ module.exports = function(req, res, next){
           longitude: docs[i].longitude,
           criador: req.user.fullname
         };
+        final.push(array);
       }
     }
     res.json({
-      eventos: array
+      eventos: final
     });
   });
 }

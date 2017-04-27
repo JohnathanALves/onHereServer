@@ -8,25 +8,27 @@ module.exports = function(req, res, next){
     if(err){
       return res.json({status: '416'});
     } else{
-      var array = []
+      var final = []
       for (var i =0; i< docs.length; i++){
           if (docs[i].isAtivo) {
-            array[i] = {
-              nome: docs[i].nome,
-              descricao: docs[i].descricao,
-              dtin: docs[i].data_in,
-              dtfim: docs[i].data_fim,
-              tolerancia: docs[i].tolerancia,
-              latitude: docs[i].latitude,
-              longitude: docs[i].longitude,
-              participantes: docs[i]. participantes,
-              chave: docs[i].chave,
-              criador: docs[i].owner
+            var array = {
+              nome              : docs[i].nome,
+              descricao         : docs[i].descricao,
+              dtin              : docs[i].data_in,
+              dtfim             : docs[i].data_fim,
+              tolerancia        : docs[i].tolerancia,
+              latitude          : docs[i].latitude,
+              longitude         : docs[i].longitude,
+              participantes     : docs[i]. participantes,
+              chave             : docs[i].chave,
+              criador           : docs[i].owner
             };
+            final.push(array);
           }
       }
+
       res.json({
-        eventos: array
+        eventos: final
       });
     }
   });
